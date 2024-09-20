@@ -1,0 +1,5 @@
+outs:
+- md5: 0e6d793e7f04e633b5b801d5565d118f
+  size: 1096
+  hash: md5
+  path: meal_info.csv
