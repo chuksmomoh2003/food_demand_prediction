@@ -1,0 +1,28 @@
+stages:
+  prepare:
+    cmd: python3 prepare_data.py
+    deps:
+      - train_food_demand.csv
+      - meal_info.csv
+      - fulfilment_center_info.csv
+      - prepare_data.py
+    outs:
+      - clean_data.csv
+
+  process:
+    cmd: python3 feature_processing.py
+    deps:
+      - clean_data.csv
+      - feature_processing.py
+    outs:
+      - processed_data.csv
+
+  train:
+    cmd: python3 train.py
+    deps:
+      - processed_data.csv
+      - train.py
+    outs:
+      - model.joblib
+      - evaluation_results.txt  # Capture evaluation metrics as an output
+
